@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <!--<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, minimum-scale=1, maximum-scale=1.0, user-scalable=no, viewport-fit=cover, shrink-to-fit=no, minimal-ui">-->
     <title>Snowflake Demo</title>
-    <script src="https://cdn.jsdelivr.net/gh/nextapps-de/snowflake@master/snowflake.min.js"></script>
     <style>
         html, body{
             margin:0;
@@ -11,15 +11,47 @@
             border:0;
             width:100%;
             height:100%;
+            overflow: hidden;
+            text-align: center;
         }
-        body{
-            background-image: url(branch-cold-couple-306825.jpg);
-            background-position: center center;
-            background-repeat: no-repeat;
-            background-size: cover;
+        img{
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: 0 50%;
+            filter: blur(5px);
+            transform-origin: center center;
+            transform: scale(107%);
         }
     </style>
 </head>
 <body>
+<img src="winter-4742436.jpg" width="1080" height="700" alt="Background Image">
+<a href="https://github.com/nextapps-de/snowflake" style="position: absolute; top: 15px; color: #fff; font-size: 18px;">Github</a>
+<script>
+    window.SnowflakeConfig = {
+        speed: 1.0,
+        size: 1.0,
+        quality: 1.0,
+        density: 1.0,
+        opacity: 1.0,
+        index: 9,
+        mount: document.body,
+        //image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABAAgMAAADXB5lNAAAADFBMVEXk7PTk7PTk7PQAAAAAkx47AAAABHRSTlOQSfwAyZGfwAAAAdRJREFUeF6Fk7FOhEAQhvcNrHwCO+xteQfj5hKfQHmAa6m0sCGxv5soiSxcQWd5lJprzcWExt7KUIzJBRh3djYIWEgCu/kIP//M/qNIrr7yGw++EI4m4LBdZxPQ3N6XE9AWRTUBFBQ0BbvNCLShFSl5FfCOQCT3uwPXv+DKgWjpAa5yB+o1ULOEknCbOoCPIE7xLnGgK4Cap/uEsIgdWATATkNCs7eA94l1aojQUgGZdWr1agGkL3Lr1OpFx9rXEsXUA3VmKK4GNobpADBjUCcD6HIGUShARBBEwoMaEDAdAcwQrIQAEUEQCVKv1LKn5Yq9V3SiPsOeXa+3/KzajTokLI+P3IsobjLVpvQZ2p7YXnQb2lVqb3R9oxeB2evzVAcLVcyuv2Bf6MsbrQOj9fkDf9JaJWuJRd1WHUqS3wJREDel2lVi7Jkby8Z21LOlMz7GpqJT9U1kLRmEyC5EH778FKGGcYMSBMxGIAoRunwAVsI1OR4ApgxERIkEAxFRIuGOMvdAa+MPW2ufD/bu4yCA3/4GhnQA1EmkfD4K4PIldLNYwhDcw3JVEnJPFPdiFu2refhfGPQOvI0GKOF1PGIpzYbQTAGHfwJ4PP4ZdYRyAtiHgB9fc1w25BtOVgAAAABJRU5ErkJggg==",
+        //image: false,
+        style: {
+            position: "fixed",
+            width: "100%",
+            height: "100%",
+            top: 0,
+            left: 0
+        }
+    };
+</script>
+<!--<script src="https://cdn.jsdelivr.net/gh/nextapps-de/snowflake@master/snowflake.min.js"></script>-->
+<script src="../snowflake.js"></script>
 </body>
 </html>

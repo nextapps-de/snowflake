@@ -103,9 +103,10 @@
         ctx.clearRect(0, 0, width, height);
 
         let scale = last ? (time - last) / (1000 / 60) : 1;
+        scale > 100 && (scale = 1);
         last = time;
 
-        for(let i = 0, flake; i < (count * density | 0); i++) {
+        for(let i = 0, flake, length = count * density | 0; i < length; i++) {
 
             flake = snowflakes[i] || (snowflakes[i] = new Snowflake(randomize(height)));
             flake.y += flake.vy * scale * speed * (size / 3);
@@ -115,7 +116,7 @@
                flake.x >= width ||
                flake.x <= -flake.w){
 
-                snowflakes.length > (count * density | 0)
+                snowflakes.length > length
                     ? snowflakes.splice(i--, 1)
                     : snowflakes[i] = new Snowflake(0);
             }

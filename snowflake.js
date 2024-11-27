@@ -28,7 +28,7 @@
         { r: 2.7, o: 0.8 },
         { r: 2.9, o: 0.6 },
         { r: 3.1, o: 0.4 },
-        { r: 3.3, o: 0.3 }
+        { r: 3.5, o: 0.3 }
     ];
 
     function createBuffer(index){
@@ -92,7 +92,7 @@
         this.o = flake.o;
         this.vy = flake.r * flake.r * dpi * quality / size / 2;
         this.vx = (0.5 - randomize()) / size * dpi * quality;
-        this.deg = (1 - randomize(2)) * size / 180 * Math.PI;
+        this.deg = (1 - randomize(2)) * size / dpi / quality / 180 * Math.PI;
     }
 
     function update(time){
@@ -110,7 +110,7 @@
 
             flake = snowflakes[i] || (snowflakes[i] = new Snowflake(randomize(height)));
             flake.y += flake.vy * scale * speed * (size / 3);
-            flake.x += flake.vx * scale + Math.sin(flake.y / speed / (size / 3) * flake.deg) / 2;
+            flake.x += flake.vx * scale + Math.sin(flake.y / speed / (size / 3) * flake.deg) / 2 * dpi * quality;
 
             if(flake.y >= height ||
                flake.x >= width ||
@@ -248,7 +248,8 @@
         for(let key in config){
 
             key === "start"
-                ? autostart = config[key] !== false
+                ? autostart = !!config[key]
+              //: key === "stop" ? autostart = !config[key]
                 : controls[key](config[key]);
         }
     }

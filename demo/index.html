@@ -14,46 +14,60 @@
             overflow: hidden;
             text-align: center;
         }
-        img{
+        #bg{
             position: absolute;
             top: 0;
             left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            object-position: 0 50%;
+            right: 0;
+            bottom: 0;
+            background-image: url(winter-4742436.jpg);
+            background-position: 0 50%;
+            background-repeat: no-repeat;
+            background-size: cover;
+            -webkit-filter: blur(5px);
             filter: blur(5px);
+            transform: scale(107%);
             transform-origin: center center;
-            transform: scale(110%);
+            z-index: -1;
+        }
+        a{
+            display: inline-block;
+            margin: 15px auto 0 auto;
+            color: #fff !important;
+            font-size: 18px;
+            text-shadow: 1px 1px 1px #000;
         }
     </style>
 </head>
 <body>
-<img src="winter-4742436.jpg" width="1080" height="700" alt="Background Image">
-<a href="https://github.com/nextapps-de/snowflake" style="position: absolute; top: 15px; color: #fff; font-size: 18px;">Github</a>
+<div id="bg"></div>
+<a href="https://github.com/nextapps-de/snowflake">Github</a>
 <script>
-    /* Default Settings */
+    /* Custom Settings (Optional) */
     window.SnowflakeConfig = {
         speed: 1.0,
         size: 1.0,
         quality: 1.0,
         density: 1.0,
         opacity: 1.0,
-        index: 9,
+        index: 999999,
         mount: document.body,
-        //image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABAAgMAAADXB5lNAAAADFBMVEXk7PTk7PTk7PQAAAAAkx47AAAABHRSTlOQSfwAyZGfwAAAAdRJREFUeF6Fk7FOhEAQhvcNrHwCO+xteQfj5hKfQHmAa6m0sCGxv5soiSxcQWd5lJprzcWExt7KUIzJBRh3djYIWEgCu/kIP//M/qNIrr7yGw++EI4m4LBdZxPQ3N6XE9AWRTUBFBQ0BbvNCLShFSl5FfCOQCT3uwPXv+DKgWjpAa5yB+o1ULOEknCbOoCPIE7xLnGgK4Cap/uEsIgdWATATkNCs7eA94l1aojQUgGZdWr1agGkL3Lr1OpFx9rXEsXUA3VmKK4GNobpADBjUCcD6HIGUShARBBEwoMaEDAdAcwQrIQAEUEQCVKv1LKn5Yq9V3SiPsOeXa+3/KzajTokLI+P3IsobjLVpvQZ2p7YXnQb2lVqb3R9oxeB2evzVAcLVcyuv2Bf6MsbrQOj9fkDf9JaJWuJRd1WHUqS3wJREDel2lVi7Jkby8Z21LOlMz7GpqJT9U1kLRmEyC5EH778FKGGcYMSBMxGIAoRunwAVsI1OR4ApgxERIkEAxFRIuGOMvdAa+MPW2ufD/bu4yCA3/4GhnQA1EmkfD4K4PIldLNYwhDcw3JVEnJPFPdiFu2refhfGPQOvI0GKOF1PGIpzYbQTAGHfwJ4PP4ZdYRyAtiHgB9fc1w25BtOVgAAAABJRU5ErkJggg==",
-        //image: false,
         style: {
             position: "fixed",
             width: "100%",
             height: "100%",
             top: 0,
             left: 0
-        }
+        },
+
+        // custom image:
+        //image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABAAgMAAADXB5lNAAAADFBMVEXk7PTk7PTk7PQAAAAAkx47AAAABHRSTlOQSfwAyZGfwAAAAdRJREFUeF6Fk7FOhEAQhvcNrHwCO+xteQfj5hKfQHmAa6m0sCGxv5soiSxcQWd5lJprzcWExt7KUIzJBRh3djYIWEgCu/kIP//M/qNIrr7yGw++EI4m4LBdZxPQ3N6XE9AWRTUBFBQ0BbvNCLShFSl5FfCOQCT3uwPXv+DKgWjpAa5yB+o1ULOEknCbOoCPIE7xLnGgK4Cap/uEsIgdWATATkNCs7eA94l1aojQUgGZdWr1agGkL3Lr1OpFx9rXEsXUA3VmKK4GNobpADBjUCcD6HIGUShARBBEwoMaEDAdAcwQrIQAEUEQCVKv1LKn5Yq9V3SiPsOeXa+3/KzajTokLI+P3IsobjLVpvQZ2p7YXnQb2lVqb3R9oxeB2evzVAcLVcyuv2Bf6MsbrQOj9fkDf9JaJWuJRd1WHUqS3wJREDel2lVi7Jkby8Z21LOlMz7GpqJT9U1kLRmEyC5EH778FKGGcYMSBMxGIAoRunwAVsI1OR4ApgxERIkEAxFRIuGOMvdAa+MPW2ufD/bu4yCA3/4GhnQA1EmkfD4K4PIldLNYwhDcw3JVEnJPFPdiFu2refhfGPQOvI0GKOF1PGIpzYbQTAGHfwJ4PP4ZdYRyAtiHgB9fc1w25BtOVgAAAABJRU5ErkJggg==",
+
+        // disable snowflake image:
+        //image: false,
     };
 </script>
 <!--<script src="https://cdn.jsdelivr.net/gh/nextapps-de/snowflake@master/snowflake.min.js"></script>-->
-<!--<script src="../snowflake.js"></script>-->
 <script src="../snowflake.min.js"></script>
 </body>
 </html>

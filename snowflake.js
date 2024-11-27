@@ -98,6 +98,7 @@
     function update(time){
 
         raf = window.requestAnimationFrame(update);
+        //setTimeout(update, 1000 / 30, Date.now())
         if(!image.loaded) return;
         ctx.clearRect(0, 0, width, height);
 
@@ -107,8 +108,8 @@
         for(let i = 0, flake; i < (count * density | 0); i++) {
 
             flake = snowflakes[i] || (snowflakes[i] = new Snowflake(randomize(height)));
-            flake.y += flake.vy / scale * speed * (size / 3);
-            flake.x += flake.vx / scale + Math.sin(flake.y / speed / (size / 3) * flake.deg) / 2;
+            flake.y += flake.vy * scale * speed * (size / 3);
+            flake.x += flake.vx * scale + Math.sin(flake.y / speed / (size / 3) * flake.deg) / 2;
 
             if(flake.y >= height ||
                flake.x >= width ||
@@ -221,7 +222,7 @@
         "stop": function(){
             cancelAnimationFrame(raf);
             style({ "display": "none" });
-            raf = 0;
+            raf = last = 0;
         }
     };
 

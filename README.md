@@ -1,7 +1,7 @@
-# Web Snowflake Plugin (Canvas-based, 2Kb)
+# Snowflake Animation (Web Canvas-based, 2Kb)
 ### Usage
 
-Insert this snippet into `<HEAD>` or `<BODY>` tag of your html page:
+Download the library or insert this snippet into `<HEAD>` or `<BODY>` tag of your html page:
 
 ```html
 <script src="https://cdn.jsdelivr.net/gh/nextapps-de/snowflake@master/snowflake.min.js"></script>

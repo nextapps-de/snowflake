@@ -17,16 +17,16 @@ Apply a config object to `window.SnowflakeConfig` __before__ loading the library
 
 ```js
 window.SnowflakeConfig = {
-    speed: 1.2,
-    size: 1.2,
+    size: 1.0,
+    speed: 0.65,
+    opacity: 0.2,
+    density: 0.5,
     quality: 2.0,
-    density: 2.0,
-    opacity: 0.5,
     index: 9,
     mount: document.body,
     image: "path-to-file.png",
     style: {
-        position: "absolute",
+        position: "fixed",
         width: "100%",
         height: "100%",
         top: 0,

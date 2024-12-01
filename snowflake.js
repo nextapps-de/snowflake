@@ -110,7 +110,7 @@
 
             flake = snowflakes[i] || (snowflakes[i] = new Snowflake(randomize(height)));
             flake.y += flake.vy * scale * speed * (size / 3);
-            flake.x += flake.vx * scale + Math.sin(flake.y / speed / (size / 3) * flake.deg) / 2 * dpi * quality;
+            flake.x += flake.vx * scale * speed + Math.sin(flake.y / speed / (size / 3) * flake.deg) / 2 * dpi * quality;
 
             if(flake.y >= height ||
                flake.x >= width ||

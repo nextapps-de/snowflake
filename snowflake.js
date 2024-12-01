@@ -181,6 +181,22 @@
         }
     }
 
+    function init(){
+
+        const config = window["SnowflakeConfig"];
+
+        if(config) for(let key in config){
+
+            key === "start"
+                ? autostart = !!config[key]
+              //: key === "stop" ? autostart = !config[key]
+                : controls[key](config[key]);
+        }
+
+        image.loaded || image.src || (image.src = base64);
+        autostart && load();
+    }
+
     function load(){
 
         resize();
@@ -230,7 +246,7 @@
         "start": function(){
             autostart
                 ? raf || update(0)
-                : load();
+                : init() || load();
             style({ "display": "" });
         },
         "stop": function(){
@@ -254,26 +270,7 @@
     image.onload = function(){ image.loaded = true; };
     image.onerror = function(){ image.onerror = null; image.src = base64; };
 
-    const config = window["SnowflakeConfig"];
-
-    if(config){
-
-        for(let key in config){
-
-            key === "start"
-                ? autostart = !!config[key]
-              //: key === "stop" ? autostart = !config[key]
-                : controls[key](config[key]);
-        }
-    }
-
-    image.loaded || image.src || (image.src = base64);
-
-    if(autostart){
-
-        document.readyState === "complete"
-            ? load()
-            : window.addEventListener("load", load, false);
-    }
-
+    document.readyState === "complete"
+        ? init()
+        : window.addEventListener("load", init, false);
 }());

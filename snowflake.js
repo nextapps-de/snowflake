@@ -139,11 +139,22 @@
 
     function resize(){
 
-        let element = document.documentElement,
-            body = document.body;
+        let parent = canvas.parentElement;
+        !parent || parent === document.body && (parent = document.documentElement);
 
-        width = (window.innerWidth || element.clientWidth || body.clientWidth) / 3 * dpi * quality;
-        height = (window.innerHeight || element.clientHeight || body.clientHeight) / 3 * dpi * quality;
+        if(parent){
+
+            width = parent.clientWidth;
+            height = parent.clientHeight;
+        }
+        else{
+
+            width = window.innerWidth;
+            height = window.innerHeight;
+        }
+
+        width = width / 3 * dpi * quality;
+        height = height / 3 * dpi * quality;
         count = ((width / (dpi * quality)) * (height / (dpi * quality)) / 1500) | 0;
 
         canvas.width = width;
@@ -213,6 +224,8 @@
         },
         "mount": function(node){
             node.appendChild(canvas);
+            style({ "position": node === document.body ? "fixed" : "absolute" });
+            autostart && resize();
         },
         "start": function(){
             autostart

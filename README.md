@@ -55,19 +55,19 @@ window.SnowflakeConfig = {
 
 ## Controls
 
-### Hide/Stop Snowflake
-
-```js
-Snowflake.stop();
-```
-
 ### Show/Start Snowflake
 
 ```js
 Snowflake.start();
 ```
 
-> The library will automatically start when loading the library
+> The library will automatically start by default when loading the library. Just when autostart was disabled you'll need to initially call `Snowflake.start()`.
+
+### Hide/Stop Snowflake
+
+```js
+Snowflake.stop();
+```
 
 ### Set Flake Speed
 
@@ -120,7 +120,16 @@ Snowflake.quality(1);
 ### Custom Mount Canvas
 
 ```js
-Snowflake.mount(document.body);
+const element = document.querySelector("#custom-lement");
+Snowflake.mount(element);
+```
+
+> The mount element should have one of these positions: `relative`, `absolute` or `fixed`.
+
+You can change the css position of the canvas element:
+
+```js
+Snowflake.style({ position: "absolute" });
 ```
 
 ### Adjust Opacity:
